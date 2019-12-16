@@ -1,0 +1,33 @@
+{
+ :deps
+ {
+   ;; XXX: 1.10.0 may have problems
+   org.clojure/clojure {:mvn/version "1.9.0"}
+ }
+
+ :aliases
+ {
+   :native-image
+   {
+     :main-opts
+     [
+       "-m clj.native-image alc.enum-repls.main"
+       "--no-fallback"
+       "-H:Name=enum-repls"
+       "-H:+ReportExceptionStackTraces"
+       "--report-unsupported-elements-at-runtime"
+       "-J-Dclojure.compiler.direct-linking=true"
+       "--initialize-at-build-time"
+       "--verbose"
+     ]
+     :extra-deps
+     {
+       clj.native-image
+       {
+         :git/url "https://github.com/taylorwood/clj.native-image.git"
+         :sha "602587dfb5243ea8c72ed3e967c37c1f9d611723"
+       }
+     }
+   }
+ }
+}
