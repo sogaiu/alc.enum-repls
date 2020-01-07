@@ -4,7 +4,6 @@
 
 (set! *warn-on-reflection* true)
 
-(defn windows?
-  []
+(def windows?
   (cs/starts-with? (System/getProperty "os.name")
     "Windows"))

@@ -18,7 +18,7 @@
   [{:keys [:debug :proj-dir]}]
   (let [ctx {}
         jcmd-path (aei.w/which (str "jcmd"
-                                (when (aei.s/windows?)
+                                (when aei.s/windows?
                                   ".exe")))
         _ (when-not jcmd-path
             (aei.e/exit 1 "`jcmd` not found"))
