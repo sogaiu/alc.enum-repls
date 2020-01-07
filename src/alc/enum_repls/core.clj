@@ -11,6 +11,9 @@
 ;;
 ;; - sync docs
 ;; - allow specifying path to jcmd binary
+;; - work on VirtualMachine implementation
+;; - option to suggest unused random port?
+;; - investigate `cljs.server.node/repl`
 
 (set! *warn-on-reflection* true)
 

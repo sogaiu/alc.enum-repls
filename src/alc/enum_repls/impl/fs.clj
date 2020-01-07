@@ -5,6 +5,7 @@
 (set! *warn-on-reflection* true)
 
 ;; XXX: would be nicer if more than two arguments could be handled
+;;      use the into-array part?
 (defn path-join
   [root-path ^String item-path]
   (let [nio-path (java.nio.file.Paths/get root-path

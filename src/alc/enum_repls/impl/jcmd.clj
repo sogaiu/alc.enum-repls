@@ -110,9 +110,11 @@
                     [pid repls]))))))
     (into {})))
 
+;; XXX: complected?
 (defn boot-matcher
   [[key value]]
   (when (or (= "user.dir" key)
+          ;; XXX: just use equals?
           (re-find #"^boot.class.path" key))
     [key (unescape value)]))
 
