@@ -4,7 +4,7 @@
 
 Find information about local networked Clojure REPLs, notably port numbers.
 
-Currently supported are socket, io-prepl (prepl), remote-prepl, nrepl, shadow-cljs, boot's socket repl.
+Currently supported are socket, io-prepl (prepl), remote-prepl, nrepl, shadow-cljs, boot's socket repl, and [alc.start-repl](https://github.com/sogaiu/alc.start-repl).
 
 ## Prerequisites
 
@@ -24,13 +24,13 @@ Currently supported are socket, io-prepl (prepl), remote-prepl, nrepl, shadow-cl
 Find unspecified REPLs:
 
 ```
-$ clj -Sdeps '{:deps {alc.enum-repls {:git/url "https://github.com/sogaiu/alc.enum-repls" :sha "f6f7a9572b33f075f9fa7fa1ebcd6fd4bc6d4999"}}}' -m alc.enum-repls.main
+$ clj -Sdeps '{:deps {alc.enum-repls {:git/url "https://github.com/sogaiu/alc.enum-repls" :sha "46bd5d39dc29e161e53a6b69b4e7f94d55debc14"}}}' -m alc.enum-repls.main
 ```
 
 Find REPLs for project with directory `/home/alice/clj-project`:
 
 ```
-$ clj -Sdeps '{:deps {alc.enum-repls {:git/url "https://github.com/sogaiu/alc.enum-repls" :sha "f6f7a9572b33f075f9fa7fa1ebcd6fd4bc6d4999"}}}' -m alc.enum-repls.main /home/alice/clj-project
+$ clj -Sdeps '{:deps {alc.enum-repls {:git/url "https://github.com/sogaiu/alc.enum-repls" :sha "46bd5d39dc29e161e53a6b69b4e7f94d55debc14"}}}' -m alc.enum-repls.main /home/alice/clj-project
 ```
 
 ## Usage
@@ -63,7 +63,7 @@ Edit the `:aliases` section of `~/.clojure/deps.edn` to contain:
    {
     :extra-deps {sogaiu/alc.enum-repls
                  {:git/url "https://github.com/sogaiu/alc.enum-repls"
-                  :sha "f6f7a9572b33f075f9fa7fa1ebcd6fd4bc6d4999"
+                  :sha "46bd5d39dc29e161e53a6b69b4e7f94d55debc14"
     :main-opts ["-m" "alc.enum-repls.main"]
    }
 ```
