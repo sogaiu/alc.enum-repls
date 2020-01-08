@@ -82,11 +82,18 @@
   (cs/replace value
     "\\:" ":"))
 
-;; sample key: "clojure.server.repl"
-(defn clojure-server-matcher
+;; target keys:
+;;
+;;   user.dir
+;;   clojure.server.<name>
+;;   alc.start-repl.<name>
+;;
+;; XXX: complected?
+(defn target-matcher
   [[key value]]
   (when (or (= "user.dir" key)
-          (re-find #"^clojure\.server\.(.*)" key))
+          (re-find #"^clojure\.server\.(.*)" key)
+          (re-find #"^alc\.start-repl\.(.*)" key))
     [key (unescape value)]))
 
 (defn jcmd-sys-prop
@@ -105,7 +112,7 @@
             (let [{:keys [_ :exit :out]}
                   (jcmd-sys-prop jcmd-path pid)]
               (when (= 0 exit)
-                (let [repls (extract-props out clojure-server-matcher)]
+                (let [repls (extract-props out target-matcher)]
                   (when (< 0 (count repls))
                     [pid repls]))))))
     (into {})))

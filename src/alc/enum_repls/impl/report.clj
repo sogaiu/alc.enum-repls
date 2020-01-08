@@ -14,7 +14,8 @@
   [accept]
   (get {"clojure.core.server/repl" "clojure-socket-repl"
         "clojure.core.server/io-prepl" "clojure-socket-prepl"
-        "clojure.core.server/remote-prepl" "clojure-remote-prepl"}
+        "clojure.core.server/remote-prepl" "clojure-remote-prepl"
+        "alc.start-repl.agent/repl" "alcsr-socket-repl"}
     accept :unknown-type))
 
 (defn make-tsv-row
